@@ -43,9 +43,8 @@ ftp.cwd(folder)
 dir_create = info[pasta].split(' -')[0]
 
 actual_path = os.path.dirname(os.path.abspath(__file__))
-print(actual_path)
 
-print('\nAlgumas pastas podem estar vazias ou conterem arquivos inúteis.\n')
+print('\nAlgumas pastas podem estar vazias ou conter arquivos inúteis.')
 
 if (info[pasta].split(' -')[0] == 'CIH') | (info[pasta].split(' -')[0] == 'CIHA') | (info[pasta].split(' -')[0] == 'SIHSUS')| (info[pasta].split(' -')[0] == 'SISPRENATAL'):
     for i in ftp.nlst():
@@ -67,18 +66,22 @@ if (info[pasta].split(' -')[0] == 'CIH') | (info[pasta].split(' -')[0] == 'CIHA'
     for item in ftp.nlst():    
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
     
+    print('\nDownload em andamento.')
+    
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
     
     
 elif info[pasta].split(' -')[0] == 'SISAB':
     ftp.cwd(folder + '/DadosSISAB')
-    
-    new_dir = str(ftp.nlst()[choice]) + '_' +  str(dir_create)    
+
+    new_dir = 'Dados_' +  str(dir_create)    
     if not os.path.exists(actual_path +'/'+ str(new_dir)):
         os.mkdir(actual_path +'/'+ str(new_dir))
         
     for item in ftp.nlst():    
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
+    
+    print('\nDownload em andamento.')
     
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
     
@@ -95,7 +98,9 @@ elif info[pasta].split(' -')[0] == 'SIASUS':
     
     for item in ftp.nlst():    
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
-    
+
+    print('\nDownload em andamento.')
+
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
 
     
@@ -117,6 +122,8 @@ elif info[pasta].split(' -')[0] == 'SIM':
     
     for item in ftp.nlst():    
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
+  
+    print('\nDownload em andamento.')
     
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
     
@@ -137,6 +144,7 @@ elif info[pasta].split(' -')[0] == 'SINAN':
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
     
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
+    print('\nDownload em andamento.')
 
 elif info[pasta].split(' -')[0] == 'SINASC':
     for i in ftp.nlst():
@@ -170,10 +178,11 @@ elif info[pasta].split(' -')[0] == 'SINASC':
     
     for item in ftp.nlst():    
         handle = open(actual_path +'/'+ new_dir+'/'+str(item), 'wb')
-    
+
+    print('\nDownload em andamento.')
+
     ftp.retrbinary('RETR ' + ftp.nlst()[0], handle.write)
     
-print('\nDownload em andamento.')
 print('\nDownload concluído.')
 
 
