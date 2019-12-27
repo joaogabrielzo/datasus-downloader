@@ -5,7 +5,7 @@ Esse projeto tem como objetivo fazer o download de arquivos de dados disponibili
 ## Tecnologias
 
 Python  
-&nbsp;&nbsp;&nbsp;[ftplib](https://docs.python.org/3/library/ftplib.html)
+&nbsp;&nbsp;&nbsp;[ftplib](https://docs.python.org/3/library/ftplib.html)  
 &nbsp;&nbsp;&nbsp;[os](https://docs.python.org/3/library/os.html)
 
 ## Como usar
